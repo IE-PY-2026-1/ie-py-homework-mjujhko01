@@ -43,7 +43,7 @@
     
 ### **📁 증빙 자료:**
   * [1차_AI협업캡처.pdf 첨부 완료]
-  * https://github.com/IE-PY-2026-1/ie-py-homework-mjujhko01/blob/main/1차_AI협업챕처.pdf
+  * https://github.com/IE-PY-2026-1/ie-py-homework-mjujhko01/edit/main/README.md#:~:text=1차_AI협업챕처.pdf
 
 
 <br>
