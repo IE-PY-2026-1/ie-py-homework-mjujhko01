@@ -28,7 +28,7 @@ else:
         elif score_new >= 1000:
             grade_new = "silver"
         else:
-            grade_new = "bronze" #for문 내의 다중if 이용한 필터링
+            grade_new = "bronze" #for문 내부에 다중if 결합하여 데이터 필터링
 
         name.append(name_new)
         gender.append(gender_new)
