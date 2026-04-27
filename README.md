@@ -90,8 +90,9 @@
      
 ### **📁 증빙 자료:**
   * [2차_AI협업캡처.pdf 첨부 완료]
-    (https://github.com/IE-PY-2026-1/ie-py-homework-mjujhko01/blob/341f92ce48258fc94249281c00beb64e33491e5c/2%E1%84%8E%E1%85%A1%20AI%E1%84%92%E1%85%A7%E1%86%B8%E1%84%8B%E1%85%A5%E1%86%B8%20%E1%84%8F%E1%85%A2%E1%86%B8%E1%84%8E%E1%85%A7.pdf)
+    https://github.com/IE-PY-2026-1/ie-py-homework-mjujhko01/blob/341f92ce48258fc94249281c00beb64e33491e5c/2%E1%84%8E%E1%85%A1%20AI%E1%84%92%E1%85%A7%E1%86%B8%E1%84%8B%E1%85%A5%E1%86%B8%20%E1%84%8F%E1%85%A2%E1%86%B8%E1%84%8E%E1%85%A7.pdf
   * [2차과제_실행결과.jpg]
+    https://github.com/IE-PY-2026-1/ie-py-homework-mjujhko01/blob/642d463079da032a444a2a5518802e146aa01270/2%E1%84%8E%E1%85%A1%E1%84%80%E1%85%AA%E1%84%8C%E1%85%A6_%E1%84%89%E1%85%B5%E1%86%AF%E1%84%92%E1%85%A2%E1%86%BC%E1%84%80%E1%85%A7%E1%86%AF%E1%84%80%E1%85%AA1.png
 <br>
 
 ## 🟨 [3차 과제: V3.0] 무한 루프와 메뉴 시스템 (반복문) - 향후 작성 예정
