@@ -38,6 +38,7 @@ else:
         count_members += 1 #복합대입연산자 사용
 
 name_delete = input("삭제할 회원의 이름을 입력하세요: ")
+
 if name_delete not in name: #논리연산자 not 사용, 독립 if 사용
     print(f"{name_delete}는 우리 클럽의 회원이 아닙니다.")
 
@@ -46,9 +47,11 @@ for i in range(len(name)): #len()사용
         name.pop(i)
         gender.pop(i)
         grade.pop(i)
-        score.pop(i)
+        score.pop(i) #pop()사용
         count_members -= 1
         break #break 사용
+
+print(f"{"-" * 50}")
 
 if count_members > 0:
     print(f"클럽 평균 점수: {sum(score)/count_members} | 클럽 최고점: {max(score)} | 클럽 최저점: {min(score)}")
