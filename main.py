@@ -9,6 +9,8 @@ grades = []
 
 count_members = 0
 
+#기존에 구현되었던 기능들 함수(7개)로 분리, 매개변수 사용(set_grade, set_match_table)
+#return 이용(set_grade, set_match_group), global 키워드 사용(register, delete)
 def set_grade(score):
     if score >= 1500:
         return "gold"
