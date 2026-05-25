@@ -1,60 +1,115 @@
 # 파일이름 : main.py
 # 작 성 자 : 고준하
+import random
 
-name = []
-gender = []
-score = []
-grade = []
+names = []
+genders = []
+scores = []
+grades = []
 
-count_members = 0 #변수(리스트 & 정수)
-count_new = int(input("신규 등록할 인원수를 입력하세요: ")) #int 형변환
+count_members = 0
 
-if not(count_new > 0): #논리연산자(not), 관계연산자(>) 사용
-    print("오류: 양의 정수를 입력하세요")
-else:
-    for i in range(count_new):
-        if count_new > 1: #중첩if 사용
-            print(f"{i+1}번째 회원 입력")
-            name_new = input("이름: ")
-            gender_new = input("성별: ")
-            score_new = float(input("초기 점수: ")) #변수(문자열 & 실수), float 형변환
-        elif count_new == 1:
-            name_new = input("이름")
-            gender_new = input("성별: ")
-            score_new = float(input("초기 점수: "))
+def set_grade(score):
+    if score >= 1500:
+        return "gold"
+    elif score >= 1000:
+        return "silver"
+    else:
+        return "bronze"
+    
+def register():
+    global count_members
 
-        if score_new >= 1500:
-            grade_new = "gold"
-        elif score_new >= 1000:
-            grade_new = "silver"
-        else:
-            grade_new = "bronze" #for문 내부에 다중if 결합하여 데이터 필터링
+    total_new = int(input("추가할 인원수를 입력하세요: "))
+    for i in range(1, total_new+1):
+        members = input("이름, 성별, 점수를 띄어쓰기로 구분하여 입력하세요: ").split(" ")
 
-        name.append(name_new)
-        gender.append(gender_new)
-        grade.append(grade_new)
-        score.append(score_new) #3개 이상 input 후 list 추가(append)
+        name = members[0]
+        gender = members[1]
+        score = float(members[2])
 
-        count_members += 1 #복합대입연산자 사용
+        names.append(name)
+        genders.append(gender)
+        scores.append(score)
+        grades.append(set_grade(score))
 
-name_delete = input("삭제할 회원의 이름을 입력하세요: ")
+        count_members += 1
+    print(f"회원 {total_new}명 등록 완료")
 
-if name_delete not in name: #논리연산자 not 사용, 독립 if 사용
-    print(f"{name_delete}는 우리 클럽의 회원이 아닙니다.")
+def delete():
+    global count_members
 
-for i in range(len(name)): #len()사용
-    if name[i] == name_delete:
-        name.pop(i)
-        gender.pop(i)
-        grade.pop(i)
-        score.pop(i) #pop()사용
-        count_members -= 1
-        break #break 사용
+    total_del = int(input("삭제할 인원수를 입력하세요: "))
 
-print(f"{"-" * 50}")
+    for i in range(1, total_del+1):
+        name_delete = input("삭제할 회원의 이름을 입력하세요: ")
+        
+        if name_delete not in names:
+            print(f"{name_delete}는 우리 클럽의 회원이 아닙니다")
 
-if count_members > 0:
-    print(f"클럽 평균 점수: {sum(score)/count_members} | 클럽 최고점: {max(score)} | 클럽 최저점: {min(score)}")
-    #sum(), max(), min() 사용
-for i in range(len(name)):
-    print(f"{i+1} | 이름: {name[i]} | 성별: {gender[i]} | 등금: {grade[i]}")
+        for i in range(len(names)):
+            if names[i] == name_delete:
+                names.pop(i)
+                genders.pop(i)
+                grades.pop(i)
+                scores.pop(i)
+                count_members -= 1
+                break
+    print(f"회원 {total_del}명 삭제 완료")
+
+def view_mem():
+    for i in range(len(names)):
+        print(f"{i+1} | 이름: {names[i]} |성별: {genders[i]} | 등급: {grades[i]}")
+
+def analyze_club():
+    if count_members == 0:
+        print("등록된 회원이 없습니다.")
+    else:
+        print(f"클럽 평균 점수: {sum(scores)/count_members:.2f} | 클럽 최고점: {max(scores)} | 클럽 최저점: {min(scores)}")
+
+def set_match_group():
+    participants = []
+
+    match_grade = input("대진표를 작성할 등급을 입력하세요: ").lower()
+
+    for i in range(len(names)):
+        if grades[i] == match_grade:
+            participants.append(names[i])
+    
+    random.shuffle(participants)
+    return participants
+
+def set_match_table(p):
+    print("-"*30)
+
+    if len(p) < 2:
+        print("인원이 부족하여 대진표를 작성할 수 없습니다.")
+    else:
+        for i in range(0, len(p)-1, 2):
+            print(f"{p[i]} vs {p[i+1]}: 경기{i//2 + 1}")
+            print()
+        
+        if len(p) % 2 != 0:
+            print(f"{p[-1]}:부전승")
+            
+    print("-"*30)
+
+while True:
+    print("1.회원등록 2.회원삭제 3.회원조회 4.클럽분석 5.대진표작성 0.종료")
+    menu = input("메뉴를 선택하세요: ")
+
+    if menu == "1":
+        register()
+    elif menu == "2":
+        delete()
+    elif menu == "3":
+        view_mem()
+    elif menu == "4":
+        analyze_club()
+    elif menu == "5":
+        set_match_table(set_match_group())
+    elif menu == "0":
+        print("프로그램 종료")
+        break
+    else:
+        print("잘못된 입력입니다.")
